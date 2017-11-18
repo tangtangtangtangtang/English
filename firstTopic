@@ -1,0 +1,35 @@
+function a(){
+    var x = document.getElementById("input").value;
+    x = parseInt(x);
+    var result = {},temp = [] , resultAuxiliary = {} ,sex;
+    for(var i = 0 ;i <originalData.length; i++){
+        if(originalData[i].age>x){
+            if(result[originalData[i].lesson] !== undefined){
+                sex = originalData[i].sex;
+                result[originalData[i].lesson][sex] +=originalData[i].score;
+                resultAuxiliary[originalData[i].lesson][sex] ++;                
+            }else{
+                result[originalData[i].lesson] = {
+                                                    1:0,
+                                                    0:0
+                                                 };
+                resultAuxiliary[originalData[i].lesson] = {
+                                                    1:0,
+                                                    0:0
+                                                 }; 
+                sex =  originalData[i].sex;                             
+                result[originalData[i].lesson][sex] += originalData[i].score;
+                resultAuxiliary[originalData[i].lesson][sex] ++;
+            }
+        }
+    }
+    for(var key in result){
+        if(resultAuxiliary[key][0] !== 0){
+            result[key][0] = result[key][0]/resultAuxiliary[key][0];   
+        }
+        if(resultAuxiliary[key][1] !== 0 ){
+            result[key][1] = result[key][1]/resultAuxiliary[key][1];            
+        }
+    }
+    return result; 
+}
