@@ -22,9 +22,7 @@ returns { math: { 0: 73, 1: 82 }, english: { 0: 65, 1: 43 } }
 
 我的代码如下：
 ```
-function a(){
-    var x = document.getElementById("input").value;
-    x = parseInt(x);
+function a(x){
     var result = {},temp = [] , resultAuxiliary = {} ,sex;
     for(var i = 0 ;i <originalData.length; i++){
         if(originalData[i].age>x){
