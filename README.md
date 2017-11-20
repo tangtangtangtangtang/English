@@ -42,7 +42,7 @@ ajaxWithRetry: (options) => Promise
 
 请思考怎么编写单元测试，确保你的函数行为是正确的。
 
-###3. 请写一个弹窗demo
+### 3. 请写一个弹窗demo
 
 效果大致如图片 http://cdn.llscdn.com/fe-static/campus-test/modal.png
 分为白色背景的内容区和半透明的遮罩
