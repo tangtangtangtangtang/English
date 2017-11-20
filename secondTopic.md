@@ -14,8 +14,10 @@ ajaxWithRetry: (options) => Promise
 
 请思考怎么编写单元测试，确保你的函数行为是正确的。
 
- ``` 
 
+
+ ``` 
+//ajax(options) => promise
 function ajax(options) {
     var xhr = new XMLHttpRequest();
     var defaultOptions = {
@@ -52,4 +54,29 @@ function ajax(options) {
     return promise;
 }
 
+ ```
+ 
+ ```
+ //ajaxWithRetry(options) => promise
+
+function ajaxWithRetry(options) {
+    var defaultOptions = {
+        retryCount: 5
+    }
+    for (var key in options) {
+        defaultOptions[key] = options[key];
+    }
+    var count = 0;
+    retry();
+    function retry() {
+        ajax(defaultOptions).then(function (response) {
+            console.log(response);
+        }, function (error) {
+            if (count < defaultOptions.retryCount - 1) {
+                count++;
+                retry();
+            }
+        })
+    }
+};
  ```
