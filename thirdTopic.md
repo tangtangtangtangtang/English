@@ -8,7 +8,7 @@ Codepen地址：https://codepen.io/tangtangtangtangtang/pen/WXdogb
          * * `modalHeight` 模态框的高度
          * * `modalWidth` 模态框的宽度
          * * `modalBackgroundColor` 模态框的背景颜色
-         * * `animation` 动画效果（animate.css），使用animate.css的关键字即可
+         * * `animation` 进入动画效果（animate.css），使用animate.css的关键字（关于展现的比如rollIn）即可
          * * `imgHeight` 图片的高度
          * * `imgWidth` 图片的宽度
          * * `modalContent`文字内容，为一个对象
@@ -24,10 +24,8 @@ Codepen地址：https://codepen.io/tangtangtangtangtang/pen/WXdogb
               title: 'This Is a Title',
               content: 'this is the  content',
           },
-          animation: null,
+          animation: "animated rollIn",
           imgHeight: null,
           imgWidth: null
           });
          ```
-
-//暂未实现消失动画的自定义
