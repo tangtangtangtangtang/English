@@ -13,3 +13,43 @@ ajaxWithRetry: (options) => Promise
 新的函数里，重试retryCount次后依然失败，才算真的失败。
 
 请思考怎么编写单元测试，确保你的函数行为是正确的。
+
+ ``` 
+
+function ajax(options) {
+    var xhr = new XMLHttpRequest();
+    var defaultOptions = {
+        url: "",
+        method: "get",
+    }
+    for (var key in options) {
+        defaultOptions[key] = options[key];
+    }
+    if (defaultOptions.url === "") {
+        return;
+    }
+    var promise = new Promise(function (reslove, reject) {
+        xhr.open(defaultOptions.method, defaultOptions.url);
+        xhr.onreadystatechange = handler;
+        xhr.send();
+        function handler() {
+            if (this.readyState !== 4) {
+                return;
+            }
+            if (this.status > 200 && this.status < 300) {
+                if (!defaultOptions.success) {
+                    return;
+                }
+                defaultOptions.success(this.response);
+            } else {
+                if (!defaultOptions.fail) {
+                    return;
+                }
+                defaultOptions.fail(this.response);
+            }
+        }
+    });
+    return promise;
+}
+
+ ```
