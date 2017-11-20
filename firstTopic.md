@@ -14,7 +14,7 @@ const originalData = [
 给定age = x， 返回所有age大于x (不含等于) 的人的平均分，并按lesson和sex进行先后归类。
 比如
 ```
-returns { math: { 0: 73, 1: 82 }, english: { 0: 65, 1: 43 } }
+returns { math: { 0: 70, 1: 85 }, english: { 0: 0, 1: 80 } }
 ```
 要求： 
 1). 你可以自己裸写，也可也使用lodash等第三方库。
@@ -55,4 +55,11 @@ function a(x){
     }
     return result; 
 }
+```
+
+单元测试：
+```
+test(1,function(){
+
+})
 ```
