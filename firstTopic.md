@@ -20,6 +20,7 @@ returns { math: { 0: 73, 1: 82 }, english: { 0: 65, 1: 43 } }
 1). 你可以自己裸写，也可也使用lodash等第三方库。
 2). 你需要编写一些单元测试用例，来测试你的算法是否正确。你可以真正搭建测试环境，也可以根据主流测试框架的api编写伪代码。
 
+我的代码如下：
 ```
 function a(){
     var x = document.getElementById("input").value;
